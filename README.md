@@ -15,10 +15,9 @@ SendKit is a monorepo-based messaging toolkit that provides a unified interface 
 
 ### Supported Providers
 
-| Provider           | Status       | Description                            |
-| ------------------ | ------------ | -------------------------------------- |
-| Telegram           | ✅ Available | Send messages via the Telegram Bot API |
-| _More coming soon_ | 🚧 Planned   | Email, Slack, Discord, WhatsApp, SMS   |
+| Provider | Status       | Description                            |
+| -------- | ------------ | -------------------------------------- |
+| Telegram | ✅ Available | Send messages via the Telegram Bot API |
 
 ---
 
@@ -65,10 +64,16 @@ bun run dev:cli telegram --help
 ```
 sendkit/
 ├── packages/
-│   └── cli/                  # CLI package
+│   ├── cli/                  # CLI package (thin layer over core)
+│   │   ├── src/
+│   │   │   └── index.ts      # CLI entry point
+│   │   └── package.json      # CLI package config
+│   └── core/                 # Core SDK package (sendkit-core)
 │       ├── src/
-│       │   └── index.ts      # CLI entry point & Telegram provider
-│       └── package.json      # CLI package config
+│       │   ├── index.ts      # Barrel exports
+│       │   ├── schemas/      # Zod validation schemas
+│       │   └── operations/   # Provider operations
+│       └── package.json      # Core package config
 ├── .env.example              # Environment variable template
 ├── .gitignore                # Enterprise-level gitignore
 ├── package.json              # Workspace root config
@@ -88,19 +93,21 @@ sendkit/
 SendKit uses a **monorepo architecture** powered by Bun workspaces:
 
 ```
-┌─────────────────────────────────────────┐
-│           sendkit (workspace)           │
-├─────────────────────────────────────────┤
-│  packages/cli     →  CLI interface      │
-│  packages/core    →  Core SDK (planned) │
-│  packages/server  →  MCP Server (planned) │
-└─────────────────────────────────────────┘
+┌──────────────────────────────────────────────┐
+│             sendkit (workspace)              │
+├──────────────────────────────────────────────┤
+│  packages/core    →  Core SDK (Zod schemas,  │
+│                      operations, types)      │
+│  packages/cli     →  CLI interface (consumes │
+│                      core as workspace dep)  │
+└──────────────────────────────────────────────┘
 ```
 
 ### Tech Stack
 
 - **Runtime**: [Bun](https://bun.sh/) — fast all-in-one JavaScript runtime
 - **Language**: [TypeScript](https://www.typescriptlang.org/) — strict mode enabled
+- **Validation**: [Zod](https://zod.dev/) v4 — runtime type validation for all I/O
 - **CLI Framework**: [Commander.js](https://github.com/tj/commander.js/) — complete CLI solution
 - **Module System**: ESM (ES2022 target)
 

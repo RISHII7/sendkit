@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.2.1] - 2026-06-25
+
+### Fixed
+
+- **Documentation**: Updated README to reflect the shipped status of `sendkit-core` and removed planned items.
+- **Documentation**: Removed the "Planned" section from the CHANGELOG to maintain a strict record of actual changes.
+
+---
+
 ## [0.2.0] - 2026-06-25
 
 ### Added
@@ -65,18 +74,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [Unreleased]
-
-### Planned
-
-- Email provider (SMTP / SendGrid)
-- Slack provider (Webhook / Bot API)
-- Discord provider (Webhook / Bot API)
-- MCP Server package (`@sendkit/mcp-server`)
-- Premium CLI styling with ANSI gradients and spinners
-
----
-
+[0.2.1]: https://github.com/RISHII7/sendkit/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/RISHII7/sendkit/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/RISHII7/sendkit/releases/tag/v0.1.0
-[Unreleased]: https://github.com/RISHII7/sendkit/compare/v0.2.0...HEAD
