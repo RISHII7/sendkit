@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.3.0] - 2026-06-25
+
+### Added
+
+- **MCP Server Package (`sendkit-mcp`)**: Created a local Model Context Protocol server.
+  - Exposes the Telegram messaging capabilities natively to AI IDEs (Cursor, Windsurf, Antigravity, etc.).
+  - Built on the official `@modelcontextprotocol/sdk` v1.29.0 via `stdio` transport.
+  - Completely integrated with the type-safe `sendkit-core` SDK for validation.
+  - Added `dev:local-mcp` workspace script to boot the server seamlessly.
+- **Documentation**: Added MCP Server setup instructions and `.mcp.json` boilerplate config to the README.
+- **Security**: Added `.mcp.json` to `.gitignore` under sensitive data to prevent local token leaks.
+
 ## [0.2.1] - 2026-06-25
 
 ### Fixed
@@ -74,6 +86,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+[0.3.0]: https://github.com/RISHII7/sendkit/compare/v0.2.1...v0.3.0
 [0.2.1]: https://github.com/RISHII7/sendkit/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/RISHII7/sendkit/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/RISHII7/sendkit/releases/tag/v0.1.0

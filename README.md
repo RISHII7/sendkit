@@ -57,6 +57,31 @@ bun run dev:cli --help
 bun run dev:cli telegram --help
 ```
 
+### MCP Server Usage
+
+SendKit comes with an officially supported Model Context Protocol (MCP) server. This allows AI IDEs (like Cursor, Windsurf, or Antigravity) to send messages natively.
+
+To connect the local MCP server, add the following boilerplate to your MCP configuration file (e.g. `.mcp.json` in the root of your workspace, or your global MCP config):
+
+```json
+{
+  "mcpServers": {
+    "sendkit": {
+      "command": "bun",
+      "args": [
+        "run",
+        "/absolute/path/to/sendkit/packages/local-mcp/src/index.ts"
+      ],
+      "env": {
+        "TELEGRAM_BOT_TOKEN": "<your-telegram-bot-token>"
+      }
+    }
+  }
+}
+```
+
+> **Note:** We recommend using the absolute path to the script to ensure the server starts correctly regardless of the IDE's launch context.
+
 ---
 
 ## Project Structure
@@ -68,12 +93,16 @@ sendkit/
 │   │   ├── src/
 │   │   │   └── index.ts      # CLI entry point
 │   │   └── package.json      # CLI package config
-│   └── core/                 # Core SDK package (sendkit-core)
+│   ├── core/                 # Core SDK package (sendkit-core)
+│   │   ├── src/
+│   │   │   ├── index.ts      # Barrel exports
+│   │   │   ├── schemas/      # Zod validation schemas
+│   │   │   └── operations/   # Provider operations
+│   │   └── package.json      # Core package config
+│   └── local-mcp/            # MCP Server package (sendkit-mcp)
 │       ├── src/
-│       │   ├── index.ts      # Barrel exports
-│       │   ├── schemas/      # Zod validation schemas
-│       │   └── operations/   # Provider operations
-│       └── package.json      # Core package config
+│       │   └── index.ts      # MCP Server implementation
+│       └── package.json      # MCP package config
 ├── .env.example              # Environment variable template
 ├── .gitignore                # Enterprise-level gitignore
 ├── package.json              # Workspace root config
@@ -100,6 +129,8 @@ SendKit uses a **monorepo architecture** powered by Bun workspaces:
 │                      operations, types)      │
 │  packages/cli     →  CLI interface (consumes │
 │                      core as workspace dep)  │
+│  packages/local-mcp → MCP Server (exposes    │
+│                      core tools to AI)       │
 └──────────────────────────────────────────────┘
 ```
 
