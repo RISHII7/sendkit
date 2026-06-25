@@ -82,12 +82,29 @@ To connect the local MCP server, add the following boilerplate to your MCP confi
 
 > **Note:** We recommend using the absolute path to the script to ensure the server starts correctly regardless of the IDE's launch context.
 
+### Remote MCP Server (Cloud / API)
+
+If you want to host SendKit remotely (e.g. on Railway, Render, or a VPS) and connect your IDE over the network, you can use the **Remote MCP Server**.
+
+1. Start the remote server (uses [Hono](https://hono.dev)):
+   ```bash
+   bun run dev:remote-mcp
+   ```
+2. The server exposes a Server-Sent Events (SSE) endpoint. You can connect an AI IDE (like Claude Desktop) by configuring an SSE connection pointing to your public URL.
+3. **Authentication:** Pass your Telegram Bot Token dynamically via the URL path:
+   `http://<your-server-url>/<TELEGRAM_BOT_TOKEN>/mcp`
+
 ---
 
 ## Project Structure
 
 ```
 sendkit/
+├── apps/
+│   └── remote-mcp/           # Remote MCP Server (HTTP/SSE)
+│       ├── src/
+│       │   └── index.ts      # Server implementation
+│       └── package.json      # Remote package config
 ├── packages/
 │   ├── cli/                  # CLI package (thin layer over core)
 │   │   ├── src/
@@ -129,8 +146,8 @@ SendKit uses a **monorepo architecture** powered by Bun workspaces:
 │                      operations, types)      │
 │  packages/cli     →  CLI interface (consumes │
 │                      core as workspace dep)  │
-│  packages/local-mcp → MCP Server (exposes    │
-│                      core tools to AI)       │
+│  packages/local-mcp → Local MCP Server (stdio)│
+│  apps/remote-mcp  →  Remote MCP Server (HTTP)│
 └──────────────────────────────────────────────┘
 ```
 

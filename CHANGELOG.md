@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.4.0] - 2026-06-25
+
+### Added
+
+- **Remote MCP Server (`sendkit-remote-mcp`)**: Created a cloud-ready Model Context Protocol server.
+  - Exposes the Telegram messaging capabilities over HTTP using Server-Sent Events (SSE).
+  - Built with `hono` and `@modelcontextprotocol/sdk` v1.29.0 via `WebStandardStreamableHTTPServerTransport`.
+  - Added URL parameter-based dynamic authentication for passing the bot token directly via `/not-a-real-token/mcp`.
+  - Added `dev:remote-mcp` workspace script to boot the Hono app seamlessly.
+- **Project Structure**: Introduced the `apps/` directory to separate network services from `packages/`.
+
 ## [0.3.0] - 2026-06-25
 
 ### Added
@@ -86,6 +97,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+[0.4.0]: https://github.com/RISHII7/sendkit/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/RISHII7/sendkit/compare/v0.2.1...v0.3.0
 [0.2.1]: https://github.com/RISHII7/sendkit/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/RISHII7/sendkit/compare/v0.1.0...v0.2.0
