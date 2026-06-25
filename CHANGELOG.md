@@ -7,6 +7,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.2.0] - 2026-06-25
+
+### Added
+
+- **Core SDK Package (`sendkit-core`)**: Extracted messaging logic into a reusable, type-safe core library.
+  - `schemas/` — Zod schemas for runtime validation of all Telegram I/O:
+    - `telegramMessageInputSchema` — validates chat ID and message text
+    - `telegramMessageOptionsSchema` — extends input with bot token
+    - `telegramSendMessageRequestSchema` — validates outgoing API payload
+    - `telegramSendMessageResponseSchema` — validates Telegram API response
+    - `telegramMessageOutputSchema` — validates structured return value
+  - `operations/` — Provider operation functions:
+    - `sendTelegramMessage()` — end-to-end validated Telegram message sender
+  - Barrel exports via `src/index.ts` for clean public API
+  - Zod v4 for zero-dependency runtime type validation
+
+### Changed
+
+- **CLI (`sendkit`)**: Refactored to consume `sendkit-core` as a workspace dependency.
+  - Replaced inline `fetch` + manual type cast with `sendTelegramMessage()` from core
+  - Removed local `TelegramResponse` type definition (now provided by core schemas)
+  - Improved error messages for missing environment variables and arguments
+  - Added `try/catch` block for structured error handling of core SDK exceptions
+  - Added `sendkit-core: workspace:*` as a workspace dependency
+
+---
+
 ## [0.1.0] - 2026-06-25
 
 ### Added
@@ -45,11 +72,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Email provider (SMTP / SendGrid)
 - Slack provider (Webhook / Bot API)
 - Discord provider (Webhook / Bot API)
-- Core SDK package (`@sendkit/core`)
 - MCP Server package (`@sendkit/mcp-server`)
 - Premium CLI styling with ANSI gradients and spinners
 
 ---
 
+[0.2.0]: https://github.com/RISHII7/sendkit/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/RISHII7/sendkit/releases/tag/v0.1.0
-[Unreleased]: https://github.com/RISHII7/sendkit/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/RISHII7/sendkit/compare/v0.2.0...HEAD
