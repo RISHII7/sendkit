@@ -1,0 +1,156 @@
+# SendKit
+
+> **Universal Messaging Toolkit** — A blazing-fast CLI and SDK for sending messages across multiple providers.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Bun](https://img.shields.io/badge/Bun-1.0+-f9f1e1?logo=bun&logoColor=000)](https://bun.sh/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
+---
+
+## Overview
+
+SendKit is a monorepo-based messaging toolkit that provides a unified interface for sending messages across multiple communication platforms. Start with the CLI, scale with the SDK.
+
+### Supported Providers
+
+| Provider           | Status       | Description                            |
+| ------------------ | ------------ | -------------------------------------- |
+| Telegram           | ✅ Available | Send messages via the Telegram Bot API |
+| _More coming soon_ | 🚧 Planned   | Email, Slack, Discord, WhatsApp, SMS   |
+
+---
+
+## Quick Start
+
+### Prerequisites
+
+- [Bun](https://bun.sh/) v1.0 or later
+- A Telegram Bot Token ([create one here](https://t.me/BotFather))
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/RISHII7/sendkit.git
+cd sendkit
+
+# Install dependencies
+bun install
+
+# Configure environment variables
+cp .env.example .env
+# Edit .env and add your TELEGRAM_BOT_TOKEN
+```
+
+### Usage
+
+```bash
+# Send a Telegram message
+bun run dev:cli telegram <chatId> "<message>"
+
+# Example
+bun run dev:cli telegram "971579068" "Hello from SendKit!"
+
+# View help
+bun run dev:cli --help
+bun run dev:cli telegram --help
+```
+
+---
+
+## Project Structure
+
+```
+sendkit/
+├── packages/
+│   └── cli/                  # CLI package
+│       ├── src/
+│       │   └── index.ts      # CLI entry point & Telegram provider
+│       └── package.json      # CLI package config
+├── .env.example              # Environment variable template
+├── .gitignore                # Enterprise-level gitignore
+├── package.json              # Workspace root config
+├── tsconfig.json             # TypeScript configuration
+├── bun.lock                  # Dependency lockfile
+├── LICENSE                   # MIT License
+├── CONTRIBUTING.md           # Contribution guidelines
+├── CODE_OF_CONDUCT.md        # Code of Conduct
+├── SECURITY.md               # Security policy
+└── CHANGELOG.md              # Version changelog
+```
+
+---
+
+## Architecture
+
+SendKit uses a **monorepo architecture** powered by Bun workspaces:
+
+```
+┌─────────────────────────────────────────┐
+│           sendkit (workspace)           │
+├─────────────────────────────────────────┤
+│  packages/cli     →  CLI interface      │
+│  packages/core    →  Core SDK (planned) │
+│  packages/server  →  MCP Server (planned) │
+└─────────────────────────────────────────┘
+```
+
+### Tech Stack
+
+- **Runtime**: [Bun](https://bun.sh/) — fast all-in-one JavaScript runtime
+- **Language**: [TypeScript](https://www.typescriptlang.org/) — strict mode enabled
+- **CLI Framework**: [Commander.js](https://github.com/tj/commander.js/) — complete CLI solution
+- **Module System**: ESM (ES2022 target)
+
+---
+
+## Development
+
+```bash
+# Install all workspace dependencies
+bun install
+
+# Run the CLI in development mode
+bun run dev:cli telegram <chatId> "<message>"
+
+# Type check
+bun run tsc --noEmit
+```
+
+---
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details on:
+
+- How to submit pull requests
+- Coding standards and conventions
+- Commit message format (Conventional Commits)
+- Branch naming conventions
+
+---
+
+## Security
+
+For security vulnerabilities, please see our [Security Policy](SECURITY.md). Do **not** open public issues for security concerns.
+
+---
+
+## License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Acknowledgments
+
+- [Commander.js](https://github.com/tj/commander.js/) for the CLI framework
+- [Telegram Bot API](https://core.telegram.org/bots/api) for messaging infrastructure
+
+---
+
+<p align="center">
+  <sub>Built by <a href="https://github.com/RISHII7">RISHII7</a></sub>
+</p>
