@@ -1,0 +1,364 @@
+# ==============================================================================
+# ENTERPRISE LEVEL GITIGNORE TEMPLATE
+# ==============================================================================
+# This is a comprehensive, production-ready .gitignore file designed for enterprise 
+# environments. It covers operating systems, popular IDEs, common programming 
+# languages, build tools, package managers, database files, and security/secret keys.
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. SECURITY & SENSITIVE DATA (CRITICAL)
+# ------------------------------------------------------------------------------
+# Never commit credentials, secrets, private keys, or local environment configurations.
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+*.pem
+*.key
+*.pub
+*.cert
+*.pfx
+*.p12
+*.keystore
+*.jks
+*.gpg
+secrets.json
+credentials.json
+/config/jwt/
+/config/secrets/
+
+# ------------------------------------------------------------------------------
+# 2. OPERATING SYSTEM SPECIFIC
+# ------------------------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.lnk
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Linux / Unix
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ------------------------------------------------------------------------------
+# 3. EDITORS & IDEs
+# ------------------------------------------------------------------------------
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/code-workspace
+.code-workspaces
+*.code-workspace
+
+# JetBrains (IntelliJ, WebStorm, PyCharm, CLion, Rider, GoLand, etc.)
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Eclipse
+.metadata/
+.classpath
+.project
+.settings/
+*.launch
+.factorypath
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.netbeans_derby/
+
+# Sublime Text / TextMate
+*.sublime-project
+*.sublime-workspace
+.tmbundle/
+*.tmproj
+
+# Vim & Emacs
+.*.sw[a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+elpa/
+*.elc
+auto-save-list/
+.dir-locals.el
+
+# Xcode / Mac Development
+build/
+DerivedData/
+*.placeholder
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xsyncrefs
+## Obj-C/Swift specific
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# ------------------------------------------------------------------------------
+# 4. PACKAGE MANAGERS & LANGUAGE DEPENDENCIES
+# ------------------------------------------------------------------------------
+# Node.js & Javascript
+node_modules/
+jspm_packages/
+.npm/
+.eslintcache
+.stylelintcache
+.prettiercache
+.tsbuildinfo
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.yarn-state/
+.yarn/install-state.gz
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.venv/
+venv/
+ENV/
+env/
+.tox/
+.nox/
+.pep8
+.flake8
+.ruamel
+.mypy_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+.spyderproject
+.spyproject
+.ipynb_checkpoints
+Pipfile.lock
+poetry.lock
+
+# Java / Scala (Maven & Gradle)
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.gradle/
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+.gradletasknamecache
+
+# Go
+/bin/
+/pkg/
+/src/
+*.out
+*.exe
+*.test
+*.prof
+
+# Rust
+/target/
+Cargo.lock
+
+# Ruby
+/assets/stylesheets/compiled/
+.bundle/
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/db/*.sqlite3-shm
+/db/*.sqlite3-wal
+/log/*.log
+/tmp/
+.yardoc/
+_yardoc/
+doc/
+tags
+
+# .NET / C# / F# / Visual Studio
+bin/
+obj/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+mono_crash.*
+
+# ------------------------------------------------------------------------------
+# 5. BUILD, DISTRIBUTIONS & COMPILATION OUTPUTS
+# ------------------------------------------------------------------------------
+dist/
+out/
+build/
+release/
+bin/
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+*.class
+*.jar
+*.war
+*.ear
+*.exe
+
+# ------------------------------------------------------------------------------
+# 6. LOGS, DIAGNOSTICS & SYSTEM MONITORING
+# ------------------------------------------------------------------------------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.sys.log
+*.err
+*.crash
+logs/
+log/
+.pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ------------------------------------------------------------------------------
+# 7. DATABASES & LOCAL DATA STORES
+# ------------------------------------------------------------------------------
+*.db
+*.sqlite
+*.sqlite3
+*.sqlite-journal
+*.sqlite3-journal
+*.sqlite3-shm
+*.sqlite3-wal
+*.sql
+*.dump
+*.rdb
+dump.rdb
+.redis/
+mongodb_data/
+/data/mysql/
+/data/postgres/
+local_database/
+
+# ------------------------------------------------------------------------------
+# 8. CONTAINERIZATION & VIRTUALIZATION
+# ------------------------------------------------------------------------------
+# Docker
+.docker/
+docker-compose.override.yml
+# Vagrant
+.vagrant/
+
+# ------------------------------------------------------------------------------
+# 9. TESTING, COVERAGE & DOCUMENTATION
+# ------------------------------------------------------------------------------
+coverage/
+.nyc_output/
+.istanbul.yml
+.clover/
+htmlcov/
+junit/
+test-results/
+.reports/
+docs/_build/
+site/
+
+# ------------------------------------------------------------------------------
+# 10. TERRAFORM & INFRASTRUCTURE AS CODE
+# ------------------------------------------------------------------------------
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraform.tfstate.lock.info
+
+# ------------------------------------------------------------------------------
+# 11. GENERAL / MISCELLANEOUS
+# ------------------------------------------------------------------------------
+# Temporary files
+tmp/
+temp/
+.tmp/
+.temp/
+*.tmp
+*.bak
+*.swp
+*.backup
+*.orig
