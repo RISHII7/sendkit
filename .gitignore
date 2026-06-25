@@ -27,6 +27,7 @@
 *.gpg
 secrets.json
 credentials.json
+.mcp.json
 /config/jwt/
 /config/secrets/
 
