@@ -1,12 +1,5 @@
 import { Command } from "commander";
-
-type TelegramResponse = {
-  ok: boolean;
-  result?: {
-    message_id?: number;
-  };
-  description?: string;
-};
+import { sendTelegramMessage } from "sendkit-core";
 
 const program = new Command();
 
@@ -21,48 +14,33 @@ program
     const token = process.env.TELEGRAM_BOT_TOKEN;
 
     if (!token) {
-      console.error("No Telegram Bot Token provided");
+      console.error("Missing TELEGRAM_BOT_TOKEN environment variable.");
       process.exit(1);
     }
 
     if (!chatId) {
-      console.error("No Chat ID provided");
+      console.error("Missing Telegram chat ID.");
       process.exit(1);
     }
 
     if (!message) {
-      console.error("No Message provided");
+      console.error("Missing Telegram message text.");
       process.exit(1);
     }
 
-    const response = await fetch(
-      `https://api.telegram.org/bot${token}/sendMessage`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text: message,
-        }),
-      },
-    );
+    try {
+      const result = await sendTelegramMessage({
+        botToken: token,
+        chatId,
+        message,
+      });
 
-    const data = (await response.json()) as TelegramResponse;
-
-    if (!response.ok || !data.ok) {
-      const detail = data.description ?? response.statusText;
+      console.log(`Sent Telegram message to chat ${result.chatId}.`);
+      console.log(`Telegram message ID: ${result.messageId}`);
+    } catch (error) {
+      const detail = error instanceof Error ? error.message : String(error);
       console.error(`Telegram API request failed: ${detail}`);
       process.exit(1);
-    }
-
-    const messageId = data.result?.message_id;
-
-    console.log(`Sent Telegram message to chat ${chatId}.`);
-
-    if (messageId !== undefined) {
-      console.log(`Telegram message ID: ${messageId}`);
     }
   });
 
