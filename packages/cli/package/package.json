@@ -1,6 +1,19 @@
 {
   "name": "@rishi1006/sendkit",
-  "version": "0.0.0",
+  "version": "1.0.3",
+  "description": "The most beautiful CLI for sending messages from your terminal.",
+  "keywords": ["sendkit", "telegram", "cli", "messaging", "bot", "mcp"],
+  "author": "Rishi <https://github.com/RISHII7>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RISHII7/sendkit",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/RISHII7/sendkit#readme",
+  "bugs": {
+    "url": "https://github.com/RISHII7/sendkit/issues"
+  },
   "bin": {
     "sendkit": "./dist/index.js"
   },
@@ -26,7 +39,7 @@
     "prepublishOnly": "bun run build"
   },
   "dependencies": {
-    "@rishi1006/sendkit-core": "0.0.0",
+    "@rishi1006/sendkit-core": "^1.0.3",
     "commander": "^15.0.0",
     "zod": "^4.4.3"
   }

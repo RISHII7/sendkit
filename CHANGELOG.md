@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.3] - 2026-06-26
+
+### Added
+
+- **CLI Redesign**: Complete rewrite of the CLI with ASCII art banner, interactive setup wizard (`sendkit init`), Clack spinners, color-coded output via picocolors, and a new `sendkit status` health-check command that validates config and tests API connectivity.
+- **CLI `--json` flag**: Added `--json` flag to `sendkit telegram` for headless/CI usage — outputs raw JSON, no UI.
+- **Package READMEs**: Created world-class READMEs for all three NPM packages (`sendkit-core`, `sendkit`, `sendkit-mcp`) with centered logos, badge rows, API docs, architecture diagrams, and ecosystem tables.
+- **Root README**: Rewrote the monorepo README with ASCII art demo, architecture diagram, tech stack table, and project structure.
+- **Logo**: Added project logo (`assets/logo.png`) used across all package READMEs and the root README.
+- **Remote MCP Landing**: Added a branded JSON landing page at the root of the Vercel deployment with version, status, endpoints, and docs link.
+
+### Changed
+
+- **Package Metadata**: Added `description`, `keywords`, `author`, `license`, `repository`, `homepage`, and `bugs` fields to all three `package.json` files for better NPM discoverability.
+- **Version**: Bumped all packages to `1.0.3`.
+
 ## [1.0.2] - 2026-06-26
 
 ### Added
@@ -184,6 +200,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+[1.0.3]: https://github.com/RISHII7/sendkit/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/RISHII7/sendkit/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/RISHII7/sendkit/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/RISHII7/sendkit/compare/v0.8.2...v1.0.0

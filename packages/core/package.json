@@ -1,6 +1,19 @@
 {
   "name": "@rishi1006/sendkit-core",
-  "version": "0.0.0",
+  "version": "1.0.3",
+  "description": "Tiny, type-safe SDK for sending messages across providers. The engine behind SendKit.",
+  "keywords": ["sendkit", "telegram", "sdk", "messaging", "bot", "zod", "typescript"],
+  "author": "Rishi <https://github.com/RISHII7>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RISHII7/sendkit",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/RISHII7/sendkit#readme",
+  "bugs": {
+    "url": "https://github.com/RISHII7/sendkit/issues"
+  },
   "files": [
     "dist"
   ],

@@ -1,88 +1,132 @@
-# SendKit
+<p align="center">
+  <br />
+  <img width="120" src="https://raw.githubusercontent.com/RISHII7/sendkit/main/assets/logo.png" alt="SendKit" />
+  <br />
+</p>
 
-> **Universal Messaging Toolkit** — A blazing-fast CLI and SDK for sending messages across multiple providers.
+<h1 align="center">SendKit</h1>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Bun](https://img.shields.io/badge/Bun-1.0+-f9f1e1?logo=bun&logoColor=000)](https://bun.sh/)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+<p align="center">
+  <strong>Universal Messaging Toolkit</strong>
+  <br />
+  One SDK. One CLI. One MCP server. Every provider.
+</p>
 
-[![CLI](https://img.shields.io/npm/v/@rishi1006/sendkit?label=sendkit&color=black)](https://www.npmjs.com/package/@rishi1006/sendkit)
-[![Core SDK](https://img.shields.io/npm/v/@rishi1006/sendkit-core?label=sendkit-core&color=black)](https://www.npmjs.com/package/@rishi1006/sendkit-core)
-[![Local MCP](https://img.shields.io/npm/v/@rishi1006/sendkit-mcp?label=sendkit-mcp&color=black)](https://www.npmjs.com/package/@rishi1006/sendkit-mcp)
+<p align="center">
+  <a href="https://www.npmjs.com/package/@rishi1006/sendkit"><img src="https://img.shields.io/npm/v/@rishi1006/sendkit?style=flat-square&color=000&label=CLI" alt="CLI version" /></a>
+  <a href="https://www.npmjs.com/package/@rishi1006/sendkit-core"><img src="https://img.shields.io/npm/v/@rishi1006/sendkit-core?style=flat-square&color=000&label=Core" alt="Core version" /></a>
+  <a href="https://www.npmjs.com/package/@rishi1006/sendkit-mcp"><img src="https://img.shields.io/npm/v/@rishi1006/sendkit-mcp?style=flat-square&color=000&label=MCP" alt="MCP version" /></a>
+  <a href="https://github.com/RISHII7/sendkit/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-000?style=flat-square" alt="license" /></a>
+</p>
 
----
-
-## Overview
-
-SendKit is a monorepo-based messaging toolkit that provides a unified interface for sending messages across multiple communication platforms. Start with the CLI, scale with the SDK.
-
-### Supported Providers
-
-| Provider | Status       | Description                            |
-| -------- | ------------ | -------------------------------------- |
-| Telegram | ✅ Available | Send messages via the Telegram Bot API |
+<p align="center">
+  <a href="#quick-start">Quick Start</a> ·
+  <a href="#packages">Packages</a> ·
+  <a href="#mcp-server">MCP Server</a> ·
+  <a href="#architecture">Architecture</a> ·
+  <a href="#development">Development</a>
+</p>
 
 ---
 
 ## Quick Start
 
-### Prerequisites
-
-- [Bun](https://bun.sh/) v1.0 or later
-- A Telegram Bot Token ([create one here](https://t.me/BotFather))
-- (Optional for Remote MCP) A [Clerk](https://clerk.com/) account for OAuth 2.0 authentication
-
-### Installation
-
-SendKit is published on the NPM registry. You can run the CLI instantly without installing it using `npx`:
+### 30-second setup
 
 ```bash
-# Initialize your configuration
-npx -y @rishi1006/sendkit init --telegram-bot-token "<your-bot-token>"
+# 1. Configure your Telegram bot token
+npx -y @rishi1006/sendkit init
+
+# 2. Send a message
+npx -y @rishi1006/sendkit telegram 971579068 "Hello from SendKit! 🚀"
 ```
 
-Alternatively, you can install the CLI globally:
+### What you'll see
+
+```
+  ███████╗███████╗███╗   ██╗██████╗ ██╗  ██╗██╗████████╗
+  ██╔════╝██╔════╝████╗  ██║██╔══██╗██║ ██╔╝██║╚══██╔══╝
+  ███████╗█████╗  ██╔██╗ ██║██║  ██║█████╔╝ ██║   ██║
+  ╚════██║██╔══╝  ██║╚██╗██║██║  ██║██╔═██╗ ██║   ██║
+  ███████║███████╗██║ ╚████║██████╔╝██║  ██╗██║   ██║
+  ╚══════╝╚══════╝╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝╚═╝   ╚═╝
+  v1.0.3  ·  Universal Messaging Toolkit
+
+◇  ✈  Telegram
+│
+◇  Sending to 971579068...
+│
+◆  ✔ Delivered! Message ID: 42
+│
+└  Message sent successfully. 🚀
+```
+
+---
+
+## Packages
+
+SendKit is a monorepo with three publishable packages. Use whichever layer fits your use case:
+
+| Package                                                                            | What                                                          | Install                         |
+| :--------------------------------------------------------------------------------- | :------------------------------------------------------------ | :------------------------------ |
+| [`@rishi1006/sendkit-core`](https://www.npmjs.com/package/@rishi1006/sendkit-core) | **SDK** — one function, one `await`, typed result             | `npm i @rishi1006/sendkit-core` |
+| [`@rishi1006/sendkit`](https://www.npmjs.com/package/@rishi1006/sendkit)           | **CLI** — beautiful terminal UI with spinners & health checks | `npm i -g @rishi1006/sendkit`   |
+| [`@rishi1006/sendkit-mcp`](https://www.npmjs.com/package/@rishi1006/sendkit-mcp)   | **MCP Server** — give your AI IDE native messaging            | Add to `.mcp.json`              |
+
+### Supported Providers
+
+| Provider     | Status       | Transport                                     |
+| :----------- | :----------- | :-------------------------------------------- |
+| Telegram     | ✅ Available | [Bot API](https://core.telegram.org/bots/api) |
+| Discord      | 🔜 Planned   | Webhook                                       |
+| Slack        | 🔜 Planned   | Web API                                       |
+| Email (SMTP) | 🔜 Planned   | SMTP                                          |
+
+---
+
+## SDK Usage
+
+```typescript
+import { sendTelegramMessage } from "@rishi1006/sendkit-core";
+
+const result = await sendTelegramMessage({
+  botToken: process.env.TELEGRAM_BOT_TOKEN!,
+  chatId: "971579068",
+  message: "Deploy complete ✅",
+});
+
+console.log(result.messageId); // 42
+```
+
+Zero config. Edge-ready. Works on Vercel Edge, Cloudflare Workers, Deno, Bun, and Node.
+
+---
+
+## CLI Usage
+
+### Interactive setup
 
 ```bash
-npm install -g @rishi1006/sendkit
-# or using bun
-bun add -g @rishi1006/sendkit
-
-# Then you can run it directly:
-sendkit init --telegram-bot-token "<your-bot-token>"
+sendkit init          # Guided wizard with secure token input
+sendkit status        # Health check — validates config & API connectivity
 ```
 
-### AI Agent Skill
-
-If you are using an AI IDE or Agent that supports skills (like Antigravity), you can teach it how to use SendKit natively by adding the SendKit skill:
+### Send messages
 
 ```bash
-npx skills add https://github.com/RISHII7/sendkit/tree/main/skills/sendkit
+sendkit telegram <chatId> "Your message"       # Beautiful UI with spinner
+sendkit telegram <chatId> "Msg" --json         # Raw JSON for scripts/CI
 ```
 
-### Usage
+---
 
-Once configured, you can send messages. The CLI outputs structured JSON for easy integration into scripts:
+## MCP Server
 
-```bash
-# Send a Telegram message
-npx -y @rishi1006/sendkit telegram <chatId> "<message>"
+Give your AI IDE (Cursor, Windsurf, Claude Desktop, Antigravity) the native ability to send messages.
 
-# Example
-npx -y @rishi1006/sendkit telegram "971579068" "Hello from SendKit!"
-# Output: {"ok":true,"chatId":"971579068","messageId":12}
+### Local MCP (stdio)
 
-# View help
-npx -y @rishi1006/sendkit --help
-npx -y @rishi1006/sendkit telegram --help
-```
-
-### MCP Server Usage
-
-SendKit comes with an officially supported Model Context Protocol (MCP) server. This allows AI IDEs (like Cursor, Windsurf, or Antigravity) to send messages natively.
-
-To connect the local MCP server, add the following boilerplate to your MCP configuration file (e.g. `.mcp.json` in the root of your workspace, or your global MCP config):
+Add to your `.mcp.json`:
 
 ```json
 {
@@ -91,33 +135,80 @@ To connect the local MCP server, add the following boilerplate to your MCP confi
       "command": "npx",
       "args": ["-y", "@rishi1006/sendkit-mcp"],
       "env": {
-        "TELEGRAM_BOT_TOKEN": "<your-telegram-bot-token>"
+        "TELEGRAM_BOT_TOKEN": "<your-token>"
       }
     }
   }
 }
 ```
 
-### Remote MCP Server (Cloud / API)
+### Remote MCP (Cloud)
 
-If you want to host SendKit remotely (e.g. on Railway, Render, or a VPS) and connect your IDE over the network, you can use the **Remote MCP Server**. This server uses **Clerk** to enforce OAuth 2.0 authentication natively with AI IDEs.
+Host SendKit over the network with OAuth 2.0 authentication via [Clerk](https://clerk.com). Deployed on [Vercel Edge](https://vercel.com).
 
-1. Create a [Clerk](https://clerk.com) application and copy your API Keys.
-2. Add your keys to `.env`:
+1. Create a [Clerk](https://clerk.com) application.
+2. Set environment variables:
    ```env
    CLERK_PUBLISHABLE_KEY=pk_test_...
    CLERK_SECRET_KEY=sk_test_...
    ```
-3. Start the remote server (uses [Hono](https://hono.dev)):
-   ```bash
-   bun run dev:remote-mcp
-   ```
-4. Expose your server to the internet (e.g. via `ngrok`).
-5. Configure your AI IDE (like Claude Desktop) to connect to a **Custom MCP Server**:
-   - URL: `http://<your-server-url>/<TELEGRAM_BOT_TOKEN>/mcp`
-   - **OAuth Client ID**: Paste your `CLERK_PUBLISHABLE_KEY` here.
+3. Deploy to Vercel (or run locally with `bun run dev:remote-mcp`).
+4. Connect your IDE to: `https://<your-domain>/<TELEGRAM_BOT_TOKEN>/mcp`
 
-> **Note**: Claude does not support Dynamic Client Registration. When it prompts you that "Automatic client registration isn't supported", you must manually supply the `CLERK_PUBLISHABLE_KEY` in the OAuth Client ID field within the connector's settings.
+> **Note**: For Claude Desktop, manually enter the `CLERK_PUBLISHABLE_KEY` as the OAuth Client ID when prompted.
+
+### AI Agent Skill
+
+Teach your AI IDE to use SendKit automatically:
+
+```bash
+npx skills add https://github.com/RISHII7/sendkit/tree/main/skills/sendkit
+```
+
+---
+
+## Architecture
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│                    SendKit Monorepo                          │
+├──────────────────────────────────────────────────────────────┤
+│                                                              │
+│  ┌──────────────┐   ┌─────────────┐   ┌──────────────────┐   │
+│  │  sendkit     │   │ sendkit-mcp │   │ remote-mcp       │   │
+│  │  (CLI)       │   │ (MCP stdio) │   │ (Hono + Vercel)  │   │
+│  └──────┬───────┘   └──────┬──────┘   └────────┬─────────┘   │
+│         │                  │                    │            │
+│         └──────────┬───────┘────────────────────┘            │
+│                    │                                         │
+│           ┌────────▼────────┐                                │
+│           │  sendkit-core   │                                │
+│           │  (SDK engine)   │                                │
+│           └────────┬────────┘                                │
+│                    │                                         │
+│              Zod + fetch()                                   │
+│                    │                                         │
+└────────────────────┼─────────────────────────────────────────┘
+                     │
+              ┌──────▼──────┐
+              │ Telegram API │
+              └─────────────┘
+```
+
+### Tech Stack
+
+| Layer         | Technology                                                                                                                                                     |
+| :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Runtime       | [Bun](https://bun.sh/)                                                                                                                                         |
+| Language      | [TypeScript](https://www.typescriptlang.org/) (strict)                                                                                                         |
+| Validation    | [Zod](https://zod.dev/) v4                                                                                                                                     |
+| CLI Framework | [Commander](https://github.com/tj/commander.js) + [Clack](https://github.com/bombshell-dev/clack) + [picocolors](https://github.com/alexeyraspopov/picocolors) |
+| Build         | [tsdown](https://github.com/nicolo-ribaudo/tsdown) (Rolldown)                                                                                                  |
+| Linting       | [oxlint](https://oxc.rs/)                                                                                                                                      |
+| Formatting    | [oxfmt](https://oxc.rs/)                                                                                                                                       |
+| MCP           | [@modelcontextprotocol/sdk](https://github.com/modelcontextprotocol/typescript-sdk)                                                                            |
+| Remote Server | [Hono](https://hono.dev/) on [Vercel Edge](https://vercel.com)                                                                                                 |
+| Auth          | [Clerk](https://clerk.com/) OAuth 2.0                                                                                                                          |
 
 ---
 
@@ -126,122 +217,79 @@ If you want to host SendKit remotely (e.g. on Railway, Render, or a VPS) and con
 ```
 sendkit/
 ├── apps/
-│   └── remote-mcp/           # Remote MCP Server (HTTP/SSE)
-│       ├── src/
-│       │   └── index.ts      # Server implementation
-│       └── package.json      # Remote package config
+│   └── remote-mcp/              # Remote MCP Server (Hono + Vercel Edge)
+│       └── api/index.ts
 ├── packages/
-│   ├── cli/                  # CLI package (thin layer over core)
-│   │   ├── src/
-│   │   │   └── index.ts      # CLI entry point
-│   │   └── package.json      # CLI package config
-│   ├── core/                 # Core SDK package (sendkit-core)
-│   │   ├── src/
-│   │   │   ├── index.ts      # Barrel exports
-│   │   │   ├── schemas/      # Zod validation schemas
-│   │   │   └── operations/   # Provider operations
-│   │   └── package.json      # Core package config
-│   └── local-mcp/            # MCP Server package (sendkit-mcp)
-│       ├── src/
-│       │   └── index.ts      # MCP Server implementation
-│       └── package.json      # MCP package config
-├── .env.example              # Environment variable template
-├── .gitignore                # Enterprise-level gitignore
-├── package.json              # Workspace root config
-├── tsconfig.json             # TypeScript configuration
-├── bun.lock                  # Dependency lockfile
-├── LICENSE                   # MIT License
-├── CONTRIBUTING.md           # Contribution guidelines
-├── CODE_OF_CONDUCT.md        # Code of Conduct
-├── SECURITY.md               # Security policy
-└── CHANGELOG.md              # Version changelog
+│   ├── core/                    # @rishi1006/sendkit-core
+│   │   └── src/
+│   │       ├── schemas/         # Zod validation schemas
+│   │       └── operations/      # Provider operations (Telegram)
+│   ├── cli/                     # @rishi1006/sendkit
+│   │   └── src/index.ts         # CLI entry (Clack + Commander)
+│   └── local-mcp/               # @rishi1006/sendkit-mcp
+│       └── src/index.ts         # MCP stdio server
+├── skills/
+│   └── sendkit/SKILL.md         # AI Agent skill definition
+├── assets/
+│   └── logo.png                 # Project logo
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── CODE_OF_CONDUCT.md
+├── SECURITY.md
+└── LICENSE
 ```
-
----
-
-## Architecture
-
-SendKit uses a **monorepo architecture** powered by Bun workspaces:
-
-```
-┌──────────────────────────────────────────────┐
-│             sendkit (workspace)              │
-├──────────────────────────────────────────────┤
-│  packages/core    →  Core SDK (Zod schemas,  │
-│                      operations, types)      │
-│  packages/cli     →  CLI interface (consumes │
-│                      core as workspace dep)  │
-│  packages/local-mcp → Local MCP Server (stdio)│
-│  apps/remote-mcp  →  Remote MCP Server (HTTP)│
-└──────────────────────────────────────────────┘
-```
-
-### Tech Stack
-
-- **Runtime**: [Bun](https://bun.sh/) — fast all-in-one JavaScript runtime
-- **Language**: [TypeScript](https://www.typescriptlang.org/) — strict mode enabled
-- **Validation**: [Zod](https://zod.dev/) v4 — runtime type validation for all I/O
-- **CLI Framework**: [Commander.js](https://github.com/tj/commander.js/) — complete CLI solution
-- **Module System**: ESM (ES2022 target)
 
 ---
 
 ## Development
 
 ```bash
-# Install all workspace dependencies
+# Install dependencies
 bun install
 
-# Run the CLI in development mode
-bun run dev:cli telegram <chatId> "<message>"
+# Run CLI in dev mode
+bun run dev:cli -- telegram <chatId> "test"
 
-# Run fast code linting (via oxlint)
+# Run local MCP server
+bun run dev:local-mcp
+
+# Run remote MCP server
+bun run dev:remote-mcp
+
+# Build all packages
+bun run build
+
+# Lint, format, typecheck
 bun run lint
-
-# Format the codebase (via oxfmt)
 bun run format
-
-# Type check the workspace
 bun run typecheck
-
-# Build publishable packages (via tsdown)
-bun run build:core
-bun run build:cli
-bun run build:local-mcp
 ```
 
 ---
 
 ## Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details on:
+We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for:
 
-- How to submit pull requests
-- Coding standards and conventions
-- Commit message format (Conventional Commits)
+- Pull request guidelines
+- Coding standards
+- Commit message format ([Conventional Commits](https://www.conventionalcommits.org/))
 - Branch naming conventions
 
 ---
 
 ## Security
 
-For security vulnerabilities, please see our [Security Policy](SECURITY.md). Do **not** open public issues for security concerns.
+For security vulnerabilities, see [SECURITY.md](SECURITY.md). Do **not** open public issues for security concerns.
 
 ---
 
 ## License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
----
-
-## Acknowledgments
-
-- [Commander.js](https://github.com/tj/commander.js/) for the CLI framework
-- [Telegram Bot API](https://core.telegram.org/bots/api) for messaging infrastructure
+MIT © [Rishi](https://github.com/RISHII7)
 
 ---
 
 <p align="center">
-  <sub>Built by <a href="https://github.com/RISHII7">RISHII7</a></sub>
+  <sub>Built with ❤️ by <a href="https://github.com/RISHII7">RISHII7</a></sub>
 </p>

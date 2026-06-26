@@ -116,8 +116,28 @@ app.post("/:botToken/mcp", async (c) => {
   }
 });
 
+app.get("/", (c) => {
+  return c.json({
+    name: "SendKit Remote MCP",
+    version: "1.0.3",
+    status: "operational",
+    docs: "https://github.com/RISHII7/sendkit",
+    endpoints: {
+      mcp: "POST /:botToken/mcp",
+      metadata: "GET /.well-known/oauth-protected-resource/:botToken/mcp",
+    },
+    auth: "OAuth 2.0 via Clerk",
+  });
+});
+
 app.notFound((c) => {
-  return c.json({ error: "Not found" }, 404);
+  return c.json(
+    {
+      error: "Not found",
+      hint: "SendKit MCP endpoint is POST /:botToken/mcp — see https://github.com/RISHII7/sendkit",
+    },
+    404,
+  );
 });
 
 export const runtime = "edge";
