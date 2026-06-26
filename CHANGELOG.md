@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.2] - 2026-06-26
+
+### Added
+
+- **Documentation**: Added global NPM install instructions to the README.
+- **AI Agent Skill**: Added the `npx skills add` command in the README to allow users to directly import the SendKit skill into their AI IDEs (e.g. Antigravity).
+
+### Fixed
+
+- **Skill Metadata**: Updated the package namespace in `SKILL.md` from `@cwa-dev` to `@rishi1006` to correctly point to the published NPM packages.
+- **Environment Variables**: Updated `.env.example` to include the required Clerk OAuth keys (`CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY`) for Remote MCP deployments.
+
+
 ## [1.0.1] - 2026-06-26
 
 ### Fixed
@@ -171,6 +184,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+[1.0.2]: https://github.com/RISHII7/sendkit/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/RISHII7/sendkit/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/RISHII7/sendkit/compare/v0.8.2...v1.0.0
 [0.8.2]: https://github.com/RISHII7/sendkit/compare/v0.8.1...v0.8.2

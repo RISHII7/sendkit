@@ -42,6 +42,25 @@ SendKit is published on the NPM registry. You can run the CLI instantly without 
 npx -y @rishi1006/sendkit init --telegram-bot-token "<your-bot-token>"
 ```
 
+Alternatively, you can install the CLI globally:
+
+```bash
+npm install -g @rishi1006/sendkit
+# or using bun
+bun add -g @rishi1006/sendkit
+
+# Then you can run it directly:
+sendkit init --telegram-bot-token "<your-bot-token>"
+```
+
+### AI Agent Skill
+
+If you are using an AI IDE or Agent that supports skills (like Antigravity), you can teach it how to use SendKit natively by adding the SendKit skill:
+
+```bash
+npx skills add https://github.com/RISHII7/sendkit/tree/main/skills/sendkit
+```
+
 ### Usage
 
 Once configured, you can send messages. The CLI outputs structured JSON for easy integration into scripts:
