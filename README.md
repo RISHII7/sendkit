@@ -196,6 +196,11 @@ bun run format
 
 # Type check the workspace
 bun run typecheck
+
+# Build publishable packages (via tsdown)
+bun run build:core
+bun run build:cli
+bun run build:local-mcp
 ```
 
 ---
