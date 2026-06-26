@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "bun run api/index.ts",
-    "build": "bun --cwd ../../ run build:core && tsc --noEmit"
+    "build": "bun run --cwd ../../ build:core && tsc --noEmit"
   },
   "dependencies": {
     "@clerk/backend": "^3.8.2",
