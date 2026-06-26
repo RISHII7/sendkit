@@ -1,8 +1,8 @@
 {
-  "name": "@rishi1006/sendkit-mcp",
+  "name": "@rishi1006/sendkit",
   "version": "0.0.0",
   "bin": {
-    "sendkit-mcp": "./dist/index.js"
+    "sendkit": "./dist/index.js"
   },
   "files": [
     "dist"
@@ -20,14 +20,14 @@
   "publishConfig": {
     "access": "public"
   },
+  "dependencies": {
+    "commander": "^15.0.0",
+    "@cwa-dev/sendkit-core": "0.0.0",
+    "zod": "^4.4.3"
+  },
   "scripts": {
     "build": "tsdown",
-    "pack:dry": "bun run build && bun pm pack --dry-run",
+    "pack:dry": "bun run build && npm pack --dry-run",
     "prepublishOnly": "bun run build"
-  },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.29.0",
-    "@rishi1006/sendkit-core": "workspace:*",
-    "zod": "^4.4.3"
   }
 }

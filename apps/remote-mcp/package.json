@@ -6,11 +6,14 @@
   "exports": {
     ".": "./src/index.ts"
   },
+  "scripts": {
+    "start": "bun run src/index.ts"
+  },
   "dependencies": {
     "@clerk/backend": "^3.8.2",
     "@clerk/mcp-tools": "^0.5.0",
     "@modelcontextprotocol/sdk": "^1.29.0",
-    "@rishii1006/sendkit-core": "workspace:*",
+    "@rishi1006/sendkit-core": "0.0.0",
     "hono": "^4.12.27"
   }
 }
