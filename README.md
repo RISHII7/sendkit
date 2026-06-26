@@ -47,12 +47,22 @@ cp .env.example .env
 
 ### Usage
 
+Before sending messages from the CLI, you must initialize your local configuration:
+
+```bash
+# Configure your local CLI settings
+bun run dev:cli init --telegram-bot-token "<your-bot-token>"
+```
+
+Once configured, you can send messages. The CLI outputs structured JSON for easy integration into scripts:
+
 ```bash
 # Send a Telegram message
 bun run dev:cli telegram <chatId> "<message>"
 
 # Example
 bun run dev:cli telegram "971579068" "Hello from SendKit!"
+# Output: {"ok":true,"chatId":"971579068","messageId":12}
 
 # View help
 bun run dev:cli --help

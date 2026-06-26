@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.6.0] - 2026-06-26
+
+### Added
+
+- **CLI Configuration**: Introduced a new `sendkit init` command to configure local CLI settings.
+  - Generates a local config file at `~/.config/sendkit/config.json` to store provider credentials securely.
+  - Added `--telegram-bot-token` flag to the `init` command.
+  - The CLI now reads credentials from the local config file instead of relying on environment variables.
+
+### Changed
+
+- **CLI Output**: The `sendkit telegram` command now outputs a structured JSON response instead of human-readable text to improve scriptability.
+- **CLI Error Handling**: Improved global error handling using top-level `.catch()` on `program.parseAsync()`.
+
 ## [0.5.0] - 2026-06-26
 
 ### Added
@@ -107,6 +121,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+[0.6.0]: https://github.com/RISHII7/sendkit/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/RISHII7/sendkit/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/RISHII7/sendkit/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/RISHII7/sendkit/compare/v0.2.1...v0.3.0
