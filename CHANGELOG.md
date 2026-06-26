@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.5.0] - 2026-06-26
+
+### Added
+
+- **Remote MCP Authentication**: Added native OAuth 2.0 support to the Remote MCP Server using Clerk (`@clerk/backend`, `@clerk/mcp-tools`).
+  - Added the `/.well-known/oauth-protected-resource/:botToken/mcp` endpoint for providing OAuth metadata to AI IDE clients like Claude.
+  - Secured the main MCP SSE endpoint with `clerkClient.authenticateRequest` to enforce `oauth_token` Bearer authentication.
+  - Configured `x-forwarded-proto` and `x-forwarded-host` parsing in Hono to ensure proper metadata generation behind tunneling services like ngrok.
+  - Updated environment variables requirement to include `CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY`.
+
 ## [0.4.0] - 2026-06-25
 
 ### Added
@@ -97,6 +107,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+[0.5.0]: https://github.com/RISHII7/sendkit/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/RISHII7/sendkit/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/RISHII7/sendkit/compare/v0.2.1...v0.3.0
 [0.2.1]: https://github.com/RISHII7/sendkit/compare/v0.2.0...v0.2.1

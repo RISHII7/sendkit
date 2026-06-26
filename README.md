@@ -27,6 +27,7 @@ SendKit is a monorepo-based messaging toolkit that provides a unified interface 
 
 - [Bun](https://bun.sh/) v1.0 or later
 - A Telegram Bot Token ([create one here](https://t.me/BotFather))
+- (Optional for Remote MCP) A [Clerk](https://clerk.com/) account for OAuth 2.0 authentication
 
 ### Installation
 
@@ -41,6 +42,7 @@ bun install
 # Configure environment variables
 cp .env.example .env
 # Edit .env and add your TELEGRAM_BOT_TOKEN
+# For Remote MCP, also add CLERK_PUBLISHABLE_KEY and CLERK_SECRET_KEY
 ```
 
 ### Usage
@@ -84,15 +86,24 @@ To connect the local MCP server, add the following boilerplate to your MCP confi
 
 ### Remote MCP Server (Cloud / API)
 
-If you want to host SendKit remotely (e.g. on Railway, Render, or a VPS) and connect your IDE over the network, you can use the **Remote MCP Server**.
+If you want to host SendKit remotely (e.g. on Railway, Render, or a VPS) and connect your IDE over the network, you can use the **Remote MCP Server**. This server uses **Clerk** to enforce OAuth 2.0 authentication natively with AI IDEs.
 
-1. Start the remote server (uses [Hono](https://hono.dev)):
+1. Create a [Clerk](https://clerk.com) application and copy your API Keys.
+2. Add your keys to `.env`:
+   ```env
+   CLERK_PUBLISHABLE_KEY=pk_test_...
+   CLERK_SECRET_KEY=sk_test_...
+   ```
+3. Start the remote server (uses [Hono](https://hono.dev)):
    ```bash
    bun run dev:remote-mcp
    ```
-2. The server exposes a Server-Sent Events (SSE) endpoint. You can connect an AI IDE (like Claude Desktop) by configuring an SSE connection pointing to your public URL.
-3. **Authentication:** Pass your Telegram Bot Token dynamically via the URL path:
-   `http://<your-server-url>/<TELEGRAM_BOT_TOKEN>/mcp`
+4. Expose your server to the internet (e.g. via `ngrok`).
+5. Configure your AI IDE (like Claude Desktop) to connect to a **Custom MCP Server**:
+   - URL: `http://<your-server-url>/<TELEGRAM_BOT_TOKEN>/mcp`
+   - **OAuth Client ID**: Paste your `CLERK_PUBLISHABLE_KEY` here.
+
+> **Note**: Claude does not support Dynamic Client Registration. When it prompts you that "Automatic client registration isn't supported", you must manually supply the `CLERK_PUBLISHABLE_KEY` in the OAuth Client ID field within the connector's settings.
 
 ---
 
