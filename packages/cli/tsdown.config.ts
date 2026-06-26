@@ -11,6 +11,6 @@ export default defineConfig({
   outDir: "dist",
   outExtensions: () => ({ js: ".js", dts: ".d.ts" }),
   deps: {
-    neverBundle: ["@rishii1006/sendkit-core", "commander", "zod"],
+    neverBundle: ["@rishi1006/sendkit-core", "commander", "zod"],
   },
 });
