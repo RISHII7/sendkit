@@ -80,10 +80,7 @@ To connect the local MCP server, add the following boilerplate to your MCP confi
   "mcpServers": {
     "sendkit": {
       "command": "bun",
-      "args": [
-        "run",
-        "/absolute/path/to/sendkit/packages/local-mcp/src/index.ts"
-      ],
+      "args": ["run", "/absolute/path/to/sendkit/packages/local-mcp/src/index.ts"],
       "env": {
         "TELEGRAM_BOT_TOKEN": "<your-telegram-bot-token>"
       }
@@ -191,8 +188,14 @@ bun install
 # Run the CLI in development mode
 bun run dev:cli telegram <chatId> "<message>"
 
-# Type check
-bun run tsc --noEmit
+# Run fast code linting (via oxlint)
+bun run lint
+
+# Format the codebase (via oxfmt)
+bun run format
+
+# Type check the workspace
+bun run typecheck
 ```
 
 ---

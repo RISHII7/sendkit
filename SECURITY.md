@@ -3,7 +3,7 @@
 ## Supported Versions
 
 | Version | Supported          |
-|---------|--------------------|
+| ------- | ------------------ |
 | 0.1.x   | ✅ Current release |
 
 ## Reporting a Vulnerability
@@ -21,11 +21,11 @@ If you discover a security vulnerability within SendKit, please report it respon
 
 ### Response Timeline
 
-| Action | Timeline |
-|--------|----------|
-| Acknowledgment | Within 48 hours |
-| Initial Assessment | Within 5 business days |
-| Fix & Release | Within 30 days (critical), 90 days (non-critical) |
+| Action             | Timeline                                          |
+| ------------------ | ------------------------------------------------- |
+| Acknowledgment     | Within 48 hours                                   |
+| Initial Assessment | Within 5 business days                            |
+| Fix & Release      | Within 30 days (critical), 90 days (non-critical) |
 
 ## Security Best Practices
 
