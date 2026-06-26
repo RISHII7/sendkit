@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.8.0] - 2026-06-26
+
+### Added
+
+- **Package Scoping**: Renamed internal packages to use the `@rishii1006` npm scope to prepare for registry publishing.
+  - `@rishii1006/sendkit-core`
+  - `@rishii1006/sendkit` (CLI)
+  - `@rishii1006/sendkit-mcp` (Local MCP)
+- **Build Pipeline**: Integrated `tsdown` (powered by rolldown) for blazing fast TypeScript bundling and `.d.ts` generation.
+  - Added `build:core`, `build:cli`, and `build:local-mcp` scripts to the workspace root.
+  - Configured `tsdown.config.ts` and `tsconfig.build.json` for each publishable package.
+
 ## [0.7.0] - 2026-06-26
 
 ### Added
@@ -132,6 +144,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+[0.8.0]: https://github.com/RISHII7/sendkit/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/RISHII7/sendkit/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/RISHII7/sendkit/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/RISHII7/sendkit/compare/v0.4.0...v0.5.0
