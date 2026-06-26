@@ -2,10 +2,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 
-import {
-  telegramMessageInputSchema,
-  sendTelegramMessage,
-} from "@rishi1006/sendkit-core";
+import { telegramMessageInputSchema, sendTelegramMessage } from "@rishi1006/sendkit-core";
 
 const server = new McpServer({
   name: "sendkit-local",
@@ -16,9 +13,7 @@ function getTelegramBotToken() {
   const token = process.env.TELEGRAM_BOT_TOKEN;
 
   if (!token) {
-    throw new Error(
-      "TELEGRAM_BOT_TOKEN is required. Configure it in your MCP client environment.",
-    );
+    throw new Error("TELEGRAM_BOT_TOKEN is required. Configure it in your MCP client environment.");
   }
 
   return token;
