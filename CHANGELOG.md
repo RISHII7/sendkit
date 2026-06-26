@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.1] - 2026-06-26
+
+### Fixed
+
+- **Vercel Deployment**: Fixed the Bun command syntax in the `remote-mcp` build script so that Vercel properly builds workspace dependencies.
+- **Vercel Build Output**: Added an empty `public` directory with a `.keep` file to satisfy Vercel's Edge Function build requirements for API-only projects.
+
+
 ## [1.0.0] - 2026-06-26
 
 ### Added
@@ -163,6 +171,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+[1.0.1]: https://github.com/RISHII7/sendkit/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/RISHII7/sendkit/compare/v0.8.2...v1.0.0
 [0.8.2]: https://github.com/RISHII7/sendkit/compare/v0.8.1...v0.8.2
 [0.8.1]: https://github.com/RISHII7/sendkit/compare/v0.8.0...v0.8.1
