@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.7.0] - 2026-06-26
+
+### Added
+
+- **Workspace Tooling**: Integrated high-performance tooling into the monorepo root.
+  - Added `oxlint` for blazingly fast linting.
+  - Added `oxfmt` for code formatting.
+  - Added `tsc --noEmit` for workspace-wide type checking.
+  - Centralized `@types/node` dependency to the workspace root.
+  - Formatted the entire codebase using the new tools.
+
 ## [0.6.0] - 2026-06-26
 
 ### Added
@@ -121,6 +132,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+[0.7.0]: https://github.com/RISHII7/sendkit/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/RISHII7/sendkit/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/RISHII7/sendkit/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/RISHII7/sendkit/compare/v0.3.0...v0.4.0
