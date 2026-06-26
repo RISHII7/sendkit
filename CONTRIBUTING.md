@@ -59,17 +59,17 @@ bun run tsc --noEmit
 
 We follow a structured branch naming convention:
 
-| Prefix | Purpose | Example |
-|--------|---------|---------|
-| `feat/` | New features | `feat/slack-provider` |
-| `fix/` | Bug fixes | `fix/telegram-timeout` |
-| `docs/` | Documentation changes | `docs/update-readme` |
-| `refactor/` | Code refactoring | `refactor/cli-structure` |
-| `chore/` | Maintenance tasks | `chore/update-deps` |
-| `test/` | Adding or updating tests | `test/telegram-unit` |
-| `ci/` | CI/CD pipeline changes | `ci/github-actions` |
-| `release/` | Release preparation | `release/v0.1.0` |
-| `hotfix/` | Critical production fixes | `hotfix/auth-crash` |
+| Prefix      | Purpose                   | Example                  |
+| ----------- | ------------------------- | ------------------------ |
+| `feat/`     | New features              | `feat/slack-provider`    |
+| `fix/`      | Bug fixes                 | `fix/telegram-timeout`   |
+| `docs/`     | Documentation changes     | `docs/update-readme`     |
+| `refactor/` | Code refactoring          | `refactor/cli-structure` |
+| `chore/`    | Maintenance tasks         | `chore/update-deps`      |
+| `test/`     | Adding or updating tests  | `test/telegram-unit`     |
+| `ci/`       | CI/CD pipeline changes    | `ci/github-actions`      |
+| `release/`  | Release preparation       | `release/v0.1.0`         |
+| `hotfix/`   | Critical production fixes | `hotfix/auth-crash`      |
 
 ---
 
@@ -89,28 +89,28 @@ We use **[Conventional Commits](https://www.conventionalcommits.org/)** for clea
 
 ### Types
 
-| Type | Description |
-|------|-------------|
-| `feat` | A new feature |
-| `fix` | A bug fix |
-| `docs` | Documentation only changes |
-| `style` | Formatting, missing semicolons, etc. (no logic change) |
+| Type       | Description                                             |
+| ---------- | ------------------------------------------------------- |
+| `feat`     | A new feature                                           |
+| `fix`      | A bug fix                                               |
+| `docs`     | Documentation only changes                              |
+| `style`    | Formatting, missing semicolons, etc. (no logic change)  |
 | `refactor` | Code change that neither fixes a bug nor adds a feature |
-| `perf` | Performance improvements |
-| `test` | Adding or correcting tests |
-| `build` | Changes to the build system or dependencies |
-| `ci` | CI/CD configuration changes |
-| `chore` | Other changes that don't modify source or test files |
-| `revert` | Reverts a previous commit |
+| `perf`     | Performance improvements                                |
+| `test`     | Adding or correcting tests                              |
+| `build`    | Changes to the build system or dependencies             |
+| `ci`       | CI/CD configuration changes                             |
+| `chore`    | Other changes that don't modify source or test files    |
+| `revert`   | Reverts a previous commit                               |
 
 ### Scopes
 
-| Scope | Description |
-|-------|-------------|
-| `cli` | CLI package changes |
-| `core` | Core SDK changes |
-| `deps` | Dependency updates |
-| `config` | Configuration changes |
+| Scope     | Description             |
+| --------- | ----------------------- |
+| `cli`     | CLI package changes     |
+| `core`    | Core SDK changes        |
+| `deps`    | Dependency updates      |
+| `config`  | Configuration changes   |
 | `release` | Release-related changes |
 
 ### Examples
@@ -146,6 +146,7 @@ chore(deps): install Commander.js for CLI argument parsing
 ### PR Title Format
 
 Follow the same Conventional Commits format:
+
 ```
 feat(cli): add Slack provider support
 fix(cli): handle network timeout gracefully
