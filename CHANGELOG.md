@@ -7,14 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.8.1] - 2026-06-26
+
+### Fixed
+
+- **Publishing Configuration**: Fixed NPM publishing configuration and corrected package scopes.
+  - Corrected NPM package scope to `@rishi1006` (single 'i').
+  - Added `main`, `module`, `types`, and `exports` fields to all package `package.json` files.
+  - Configured `publishConfig.access` to `public`.
+  - Added executable shebangs (`#!/usr/bin/env node`) to the CLI and Local MCP server entrypoints.
+
 ## [0.8.0] - 2026-06-26
 
 ### Added
 
-- **Package Scoping**: Renamed internal packages to use the `@rishii1006` npm scope to prepare for registry publishing.
-  - `@rishii1006/sendkit-core`
-  - `@rishii1006/sendkit` (CLI)
-  - `@rishii1006/sendkit-mcp` (Local MCP)
+- **Package Scoping**: Renamed internal packages to use the `@rishi1006` npm scope to prepare for registry publishing.
+  - `@rishi1006/sendkit-core`
+  - `@rishi1006/sendkit` (CLI)
+  - `@rishi1006/sendkit-mcp` (Local MCP)
 - **Build Pipeline**: Integrated `tsdown` (powered by rolldown) for blazing fast TypeScript bundling and `.d.ts` generation.
   - Added `build:core`, `build:cli`, and `build:local-mcp` scripts to the workspace root.
   - Configured `tsdown.config.ts` and `tsconfig.build.json` for each publishable package.
@@ -144,6 +154,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+[0.8.1]: https://github.com/RISHII7/sendkit/compare/v0.8.0...v0.8.1
 [0.8.0]: https://github.com/RISHII7/sendkit/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/RISHII7/sendkit/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/RISHII7/sendkit/compare/v0.5.0...v0.6.0
