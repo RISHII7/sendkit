@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.0] - 2026-06-26
+
+### Added
+
+- **NPM Publication**: Officially published all three packages to the NPM registry under the `@rishi1006` scope.
+- Added NPM status badges to `README.md`.
+- Updated documentation with direct `npx` execution instructions for the CLI and Local MCP server.
+- **Vercel Edge Network Support**: Migrated the Remote MCP server to use the `hono/vercel` adapter on the Edge runtime for seamless deployment on Vercel.
+
 ## [0.8.1] - 2026-06-26
 
 ### Fixed
@@ -154,6 +163,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+[1.0.0]: https://github.com/RISHII7/sendkit/compare/v0.8.2...v1.0.0
+[0.8.2]: https://github.com/RISHII7/sendkit/compare/v0.8.1...v0.8.2
 [0.8.1]: https://github.com/RISHII7/sendkit/compare/v0.8.0...v0.8.1
 [0.8.0]: https://github.com/RISHII7/sendkit/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/RISHII7/sendkit/compare/v0.6.0...v0.7.0

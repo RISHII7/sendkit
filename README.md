@@ -7,6 +7,10 @@
 [![Bun](https://img.shields.io/badge/Bun-1.0+-f9f1e1?logo=bun&logoColor=000)](https://bun.sh/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
+[![CLI](https://img.shields.io/npm/v/@rishi1006/sendkit?label=sendkit&color=black)](https://www.npmjs.com/package/@rishi1006/sendkit)
+[![Core SDK](https://img.shields.io/npm/v/@rishi1006/sendkit-core?label=sendkit-core&color=black)](https://www.npmjs.com/package/@rishi1006/sendkit-core)
+[![Local MCP](https://img.shields.io/npm/v/@rishi1006/sendkit-mcp?label=sendkit-mcp&color=black)](https://www.npmjs.com/package/@rishi1006/sendkit-mcp)
+
 ---
 
 ## Overview
@@ -31,42 +35,28 @@ SendKit is a monorepo-based messaging toolkit that provides a unified interface 
 
 ### Installation
 
+SendKit is published on the NPM registry. You can run the CLI instantly without installing it using `npx`:
+
 ```bash
-# Clone the repository
-git clone https://github.com/RISHII7/sendkit.git
-cd sendkit
-
-# Install dependencies
-bun install
-
-# Configure environment variables
-cp .env.example .env
-# Edit .env and add your TELEGRAM_BOT_TOKEN
-# For Remote MCP, also add CLERK_PUBLISHABLE_KEY and CLERK_SECRET_KEY
+# Initialize your configuration
+npx -y @rishi1006/sendkit init --telegram-bot-token "<your-bot-token>"
 ```
 
 ### Usage
-
-Before sending messages from the CLI, you must initialize your local configuration:
-
-```bash
-# Configure your local CLI settings
-bun run dev:cli init --telegram-bot-token "<your-bot-token>"
-```
 
 Once configured, you can send messages. The CLI outputs structured JSON for easy integration into scripts:
 
 ```bash
 # Send a Telegram message
-bun run dev:cli telegram <chatId> "<message>"
+npx -y @rishi1006/sendkit telegram <chatId> "<message>"
 
 # Example
-bun run dev:cli telegram "971579068" "Hello from SendKit!"
+npx -y @rishi1006/sendkit telegram "971579068" "Hello from SendKit!"
 # Output: {"ok":true,"chatId":"971579068","messageId":12}
 
 # View help
-bun run dev:cli --help
-bun run dev:cli telegram --help
+npx -y @rishi1006/sendkit --help
+npx -y @rishi1006/sendkit telegram --help
 ```
 
 ### MCP Server Usage
@@ -79,8 +69,8 @@ To connect the local MCP server, add the following boilerplate to your MCP confi
 {
   "mcpServers": {
     "sendkit": {
-      "command": "bun",
-      "args": ["run", "/absolute/path/to/sendkit/packages/local-mcp/src/index.ts"],
+      "command": "npx",
+      "args": ["-y", "@rishi1006/sendkit-mcp"],
       "env": {
         "TELEGRAM_BOT_TOKEN": "<your-telegram-bot-token>"
       }
@@ -88,8 +78,6 @@ To connect the local MCP server, add the following boilerplate to your MCP confi
   }
 }
 ```
-
-> **Note:** We recommend using the absolute path to the script to ensure the server starts correctly regardless of the IDE's launch context.
 
 ### Remote MCP Server (Cloud / API)
 

@@ -1,4 +1,5 @@
 import { Hono, type Context } from "hono";
+import { handle } from "hono/vercel";
 import { createClerkClient } from "@clerk/backend";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { generateClerkProtectedResourceMetadata } from "@clerk/mcp-tools/server";
@@ -119,15 +120,7 @@ app.notFound((c) => {
   return c.json({ error: "Not found" }, 404);
 });
 
-const port = Number(process.env.PORT ?? 3000);
+export const runtime = "edge";
+export const GET = handle(app);
+export const POST = handle(app);
 
-export default {
-  port,
-  fetch: (req: Request) => {
-    const url = new URL(req.url);
-    url.protocol = req.headers.get("x-forwarded-proto") ?? url.protocol;
-    url.host = req.headers.get("x-forwarded-host") ?? url.host;
-
-    return app.fetch(new Request(url, req));
-  },
-};

@@ -7,13 +7,14 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "start": "bun run src/index.ts"
+    "start": "bun run api/index.ts",
+    "build": "bun --cwd ../../ run build:core && tsc --noEmit"
   },
   "dependencies": {
     "@clerk/backend": "^3.8.2",
     "@clerk/mcp-tools": "^0.5.0",
     "@modelcontextprotocol/sdk": "^1.29.0",
-    "@rishi1006/sendkit-core": "0.0.0",
+    "@rishi1006/sendkit-core": "workspace:*",
     "hono": "^4.12.27"
   }
 }
